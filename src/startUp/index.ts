@@ -8,4 +8,4 @@ for (const path in modules) {
 }
 
 // i18nextの初期化
-import "../settings/i18next"
+import "../lib/i18next"

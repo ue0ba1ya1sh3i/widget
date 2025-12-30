@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import initI18next from "../settings/i18next"
+import initI18next from "../lib/i18next"
 import { I18nextProvider } from "react-i18next"
 
 function App({ children }: { children: React.ReactNode }) {
