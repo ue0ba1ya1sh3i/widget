@@ -1,7 +1,7 @@
 import { defineConfig } from "vite"
 import react from "@vitejs/plugin-react"
 
-// @ts-expect-error because of Tauri environment variables
+// @ts-expect-error Tauriによって注入される環境変数だからこうしてるらしいよ
 const host = process.env.TAURI_DEV_HOST
 
 export default defineConfig(async () => ({

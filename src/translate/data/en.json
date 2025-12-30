@@ -1,0 +1,28 @@
+{
+  "widget": {
+    "no-text": "Not text set"
+  },
+
+  "settings": {
+    "title": "Settings",
+    "load": "Currently in preparation...",
+
+    "main": {
+      "title": "Main",
+      "language": "Language - Select the display language"
+    },
+
+    "color": {
+      "title": "Color"
+    },
+
+    "position": {
+        "title": "Position"
+    },
+
+    "personal": {
+      "title": "Personal",
+      "text": "Text - Displaying text in a widget"
+    }
+  }
+}

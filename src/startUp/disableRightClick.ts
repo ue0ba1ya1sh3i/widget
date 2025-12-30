@@ -1,4 +1,4 @@
-// Disable right click context menu
+// 右クリックメニューの無効化
 document.addEventListener("contextmenu", (e) => {
     e.preventDefault()
 })

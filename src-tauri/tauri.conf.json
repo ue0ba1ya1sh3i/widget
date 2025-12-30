@@ -18,7 +18,7 @@
         "title": "widget",
         "url": "/",
 
-        "width": 300,
+        "width": 400,
         "height": 300,
 
         "decorations": false,
@@ -28,8 +28,7 @@
         "maximizable": false,
         "minimizable": false,
         "visible": true,
-        "focus": true,
-        "center": true
+        "focus": true
       }
     ],
 

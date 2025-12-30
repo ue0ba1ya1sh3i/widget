@@ -1,8 +1,11 @@
-// Get all modules in the current directory files
+// すべてのモジュールのインポート
 const modules = import.meta.glob("./*.ts", { eager: true })
 
-// Execute modules
+// 各モジュールのコードを実行
 for (const path in modules) {
     const mod = modules[path] as { default?: () => void }
     mod.default?.()
 }
+
+// i18nextの初期化
+import "../settings/i18next"
