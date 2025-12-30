@@ -3,19 +3,20 @@
   "productName": "widget",
   "version": "1.0.0",
   "identifier": "com.ue0ba1ya1sh3i.widget",
-
+  
   "build": {
     "beforeDevCommand": "npm run dev",
     "devUrl": "http://localhost:1420",
     "beforeBuildCommand": "npm run build",
     "frontendDist": "../dist"
   },
-
+  
   "app": {
     "windows": [
       {
         "label": "widget",
         "title": "widget",
+        "url": "/",
 
         "width": 300,
         "height": 300,

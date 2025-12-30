@@ -1,13 +1,22 @@
 import React from "react"
 import ReactDOM from "react-dom/client"
-import Root from "./route/root"
-import "./css/index.css"
-import startUp from "./startUp"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 
-startUp()
+// CSSとセットアップコードの実行
+import "./css/index.css"
+import "./startUp"
+
+// ルートコンポーネント
+import Root from "./route/root"
+import Settings from "./route/settings"
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <Root />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Root />} />
+        <Route path="/settings" element={<Settings />} />
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 )
