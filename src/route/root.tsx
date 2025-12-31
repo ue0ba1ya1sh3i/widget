@@ -94,12 +94,12 @@ function App() {
   return (
     <div className="flex flex-col gap-2 [-webkit-app-region:drag] p-2 bg-gradient-to-tr from-violet-400 to-indigo-400 text-white min-h-dvh">
       <div className="flex gap-2 ml-auto">
-        <IoMdSettings size={25} className="cursor-pointer [-webkit-app-region:no-drag] bg-gray-200 text-gray-800 rounded-md p-1" onClick={() => openSettings()} />
-        <IoMdClose size={25} className="cursor-pointer [-webkit-app-region:no-drag] bg-gray-200 text-gray-800 rounded-md p-1" onClick={() => appWindow.close()} />
+        <IoMdSettings size={25} className="hover:bg-gray-300 transition-all cursor-pointer [-webkit-app-region:no-drag] bg-gray-200 text-gray-800 rounded-md p-1" onClick={() => openSettings()} />
+        <IoMdClose size={25} className="hover:bg-gray-300 transition-all cursor-pointer [-webkit-app-region:no-drag] bg-gray-200 text-gray-800 rounded-md p-1" onClick={() => appWindow.close()} />
       </div>
 
       <p className="text-5xl text-center"><Clock /></p>
-      <p className="text-center text-xl">{text || t2("widget.no-text")}</p>
+      <p className="text-center text-xl">{text || t2("widget.noText")}</p>
     </div>
   )
 }

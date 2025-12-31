@@ -22,7 +22,6 @@ function Main() {
     const newLang = e.target.value
     setLang(newLang)
     await i18n.changeLanguage(newLang)
-    console.log("runnning!!!")
 
     // ストアに保存
     const store = await getSettingsStore()
@@ -36,7 +35,7 @@ function Main() {
   return (
     <div className="flex flex-col gap-2">
       <p className="text-xl">{t("settings.main.language")}</p>
-      <select value={lang} onChange={handleChange} className="dark:bg-gray-800 bg-gray-100 appearance-none w-80 dark:text-white py-1 px-2 rounded-md outline-none">
+      <select value={lang} onChange={handleChange} className="dark:bg-gray-800 border-2 dark:border-none bg-white appearance-none w-80 dark:text-white py-1 px-2 rounded-md outline-none">
         <option value="en">English</option>
         <option value="ja">日本語</option>
       </select>

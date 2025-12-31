@@ -1,0 +1,44 @@
+{
+  "widget": {
+    "noText": "Not text set"
+  },
+
+  "settings": {
+    "title": "Settings",
+    "load": "Currently in preparation...",
+
+    "main": {
+      "title": "Main",
+      "language": "Language - Select the display language"
+    },
+
+    "theme": {
+      "title": "theme",
+      "current": "Current theme: {{mode}}",
+      "light": "Light",
+      "dark": "Dark",
+      "button": {
+        "toLight": "Switch to light mode",
+        "toDark": "Switch to dark mode"
+      }
+    },
+
+    "position": {
+        "title": "Position"
+    },
+
+    "info": {
+      "title": "Info",
+      "info": [
+        "The UI has been significantly redesigned.",
+        "Dark mode support for the settings window",
+        "Implementing the function to display text in the widget"
+      ]
+    },
+
+    "personal": {
+      "title": "Personal",
+      "text": "Text - Displaying text in a widget"
+    }
+  }
+}

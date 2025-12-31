@@ -3,8 +3,8 @@ import { initReactI18next } from "react-i18next"
 import { getSettingsStore } from "../lib/store"
 
 // 翻訳データ
-import en from "../translate/data/en.json"
-import ja from "../translate/data/ja.json"
+import en from "../translate/en.json"
+import ja from "../translate/ja.json"
 
 async function initI18next() {
   const store = await getSettingsStore()
