@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react'
 import { getVersion, getName } from '@tauri-apps/api/app'
 import { useTranslation } from 'react-i18next'
+import { openUrl } from "@tauri-apps/plugin-opener"
 
 export default function Info() {
   const [name, setName] = useState<string | null>(null)
@@ -28,7 +29,7 @@ export default function Info() {
 
   return (
     <>
-      <p className="text-2xl">{name} - v{version} (<a className="border-b-2" href="https://github.com/ue0ba1ya1sh3i/widget">GitHub</a>)</p>
+      <p className="text-2xl">{name} - v{version} (<button onClick={() => openUrl("https://github.com/ue0ba1ya1sh3i/widget")} className="border-b-2">GitHub</button>)</p>
       <ul className="list-disc pl-5 text-xl">
         {infoList.map((item, idx) => (
           <li key={idx}>{item}</li>
