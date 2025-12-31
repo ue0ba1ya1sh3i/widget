@@ -1,6 +1,6 @@
 [package]
 name = "widget"
-version = "1.0.0"
+version = "1.1.0"
 description = "This app is a widget with two completely different sides."
 authors = ["ue0ba1ya1sh3i"]
 edition = "2021"

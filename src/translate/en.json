@@ -29,9 +29,8 @@
     "Info": {
       "title": "Info",
       "info": [
-        "The UI has been significantly redesigned.",
-        "Dark mode support for the settings window",
-        "Implementing the function to display text in the widget"
+        "Implementation of theme mode",
+        "Improved speed"
       ]
     },
 
