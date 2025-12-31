@@ -1,15 +1,20 @@
 name: Build
 
+permissions:
+  contents: write
+
 on:
   push:
     tags:
       - "v*"
+
   workflow_dispatch:
 
 jobs:
   build:
     strategy:
       fail-fast: false
+
       matrix:
         os: [windows-latest, macos-latest, ubuntu-latest]
 
@@ -30,10 +35,22 @@ jobs:
       - name: Install npm
         run: npm install
 
-      - name: Build
-        uses: tauri-apps/tauri-action@v0
+      # Linuxの場合はWebviewがないのでWebview関係をインストールする
+      - name: Install Linux dependencies
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          sudo apt update
+          sudo apt install -y \
+            libglib2.0-dev \
+            libgtk-3-dev \
+            libwebkit2gtk-4.1-dev \
+            libappindicator3-dev \
+            librsvg2-dev \
+            pkg-config
+
+      - uses: tauri-apps/tauri-action@v0
         with:
           tagName: v__VERSION__
-          releaseName: "v__VERSION__"
-          releaseBody: "Auto build"
-          releaseDraft: true
+          releaseName: 'Widget v__VERSION__'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
