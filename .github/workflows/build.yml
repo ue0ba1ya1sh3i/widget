@@ -6,7 +6,7 @@ permissions:
 on:
   push:
     tags:
-      - "v*"
+      - 'v*'
 
   workflow_dispatch:
 
@@ -52,5 +52,19 @@ jobs:
         with:
           tagName: v__VERSION__
           releaseName: 'Widget v__VERSION__'
+          releaseBody: |
+            ## Widget v__VERSION__をリリースしました!
+            - インストール方法は以下です
+
+            ## Windows
+            - 拡張子がmsiのインストーラーをダウンロードし、実行してください
+
+            ## Mac
+            - 拡張子がdmgのファイルを実行し、アプリフォルダにドラッグ&ドロップしてください
+
+            ## Linux
+            - 単体で動かす場合は拡張子がAppImageのファイルを実行してください
+            - Ubuntu/Debian系でインストールする場合は拡張子がdebのファイルをインストールしてください
+            - Fedora/RedHat系でインストールする場合は拡張子がrpmのファイルをインストールしてください
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
