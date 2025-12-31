@@ -82,7 +82,6 @@ function useText() {
   useEffect(() => {
     let unsub: (() => void) | null = null
 
-    // 非同期処理を別関数にまとめるとすっきり
     const loadSavedText = async () => {
       const store = await getSettingsStore()
       const savedText = await store.get<string>("text")
@@ -91,7 +90,7 @@ function useText() {
 
     loadSavedText()
 
-    // 設定ウィンドウからの更新
+    // テキストの更新
     listen<{ text: string }>("text:update", (e) => {
       setText(e.payload.text)
     }).then((fn) => (unsub = fn))
@@ -110,8 +109,32 @@ export default function App() {
   const { t: t2 } = useTranslation()
   const text = useText()
 
+  const [color, setColor] = useState("")
+
+  useEffect(() => {
+    let unsub: (() => void) | null = null
+
+    const loadSavedColor = async () => {
+      const store = await getSettingsStore()
+      const savedClass = await store.get<string>("widgetTheme")
+      if (savedClass) setColor(savedClass)
+    }
+
+    loadSavedColor()
+
+    // テキストの更新
+    listen<{ colorClass: string }>("widgetTheme:update", (e) => {
+      setColor(e.payload.colorClass)
+    }).then((fn) => (unsub = fn))
+
+    // クリーンアップ
+    return () => {
+      unsub?.()
+    }
+  }, [])
+
   return (
-    <div className="flex flex-col gap-2 [-webkit-app-region:drag] p-2 bg-gradient-to-tr from-violet-400 to-indigo-400 text-white min-h-dvh">
+    <div className={`flex flex-col gap-2 [-webkit-app-region:drag] p-2 min-h-dvh ${color || "bg-gray-100 text-gray-900"}`}>
       <div className="flex gap-2 ml-auto">
         <TbFileAi size={25} className="hover:bg-gray-300 transition-all cursor-pointer [-webkit-app-region:no-drag] bg-gray-200 text-gray-800 rounded-md p-1" onClick={async () => openAI()} />
         <IoMdSettings size={25} className="hover:bg-gray-300 transition-all cursor-pointer [-webkit-app-region:no-drag] bg-gray-200 text-gray-800 rounded-md p-1" onClick={async () => openSettings()} />

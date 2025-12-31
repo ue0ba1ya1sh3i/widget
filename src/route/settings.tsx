@@ -49,21 +49,21 @@ export default function App() {
   }
 
   return (
-    <div className="flex gap-2 p-2 text-gray-900 bg-gray-100 dark:bg-gray-950 dark:text-gray-300 min-h-dvh">
+    <div className="flex gap-2 p-2 text-gray-900 bg-gray-100 dark:bg-gray-950 dark:text-gray-300 h-dvh">
       <div className="overflow-y-auto w-40 flex-shrink-0 pr-2 flex flex-col gap-2 border-r-2 border-gray-300 dark:border-gray-600 text-lg">
         {menus.map((menu) => (
-          <div key={menu} className={`dark:border-gray-600 border-gray-300 pl-1 cursor-pointer border-b-2 ${
+          <div key={menu} className={`dark:border-gray-600 flex gap-2 text-lg items-center border-gray-300 pl-1 cursor-pointer border-b-2 ${
             activeMenu === menu ? "bg-gray-300 dark:bg-gray-700" : "" }`}
             onClick={() => setActiveMenu(menu as Menus)}
           >
-            <div className="flex gap-2 text-lg items-center">{iconMap[menu]}{t(`settings.${menu}.title`)}</div>
+            {iconMap[menu]}{t(`settings.${menu}.title`)}
           </div>
         ))}
       </div>
 
-      <div className="flex-1 flex-col gap-2 flex">
+      <div className="flex-1 flex-col gap-4 flex">
         <p className="text-3xl">{t(`settings.${activeMenu}.title`)}</p>
-        <div className="py-2 flex flex-col gap-2">{componentMap[activeMenu]}</div>
+        <div className="flex flex-col gap-4">{componentMap[activeMenu]}</div>
       </div>
     </div>
   )

@@ -1,6 +1,22 @@
 import { useTranslation } from "react-i18next"
 import { useTheme } from "../../hooks/useTheme"
 
+// 自作関数
+import { setWidgetTheme } from "../../lib/theme"
+
+// 自作パーツ
+import { ToggleSwitch } from "../parts/toggle"
+
+// ウィジェットテーマカラーの定義
+const widgetColor = [
+  "bg-red-300 text-white",
+  "bg-blue-400 text-white",
+  "bg-purple-400 text-white",
+  "bg-gradient-to-tr from-violet-400 to-indigo-400 text-white",
+  "bg-yellow-300 text-gray-900",
+  "bg-gray-100 text-gray-900"
+]
+
 export default function App() {
   const { t } = useTranslation()
   const { isDark, toggleTheme } = useTheme()
@@ -10,19 +26,21 @@ export default function App() {
 
   return (
     <>
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-4">
         <p className="text-2xl">
           {t("settings.Theme.dark")}
         </p>
 
-        <label className="relative inline-flex items-center cursor-pointer">
-          <input type="checkbox" checked={isDark} onChange={toggleTheme} className="sr-only" />
+        <ToggleSwitch isOn={isDark} onChange={() => toggleTheme()} />
+      </div>
 
-          <div className="w-14 h-8 bg-gray-200 dark:bg-green-600 rounded-full transition-all"></div>
-          <div className={`absolute left-1 top-1 size-6 bg-white rounded-full shadow-md transform transition-transform ${
-            isDark ? "translate-x-6" : "translate-x-0" }`}
-          ></div>
-        </label>
+      <div className="flex flex-col gap-2">
+        <p className="text-2xl">ウィジェットテーマ</p>
+        <div className="flex flex-wrap gap-2">
+          {widgetColor.map((colorClass) => (
+            <div key={colorClass} className={`size-16 rounded-full cursor-pointer ${colorClass}`} onClick={() => setWidgetTheme(colorClass)}></div>
+          ))}
+        </div>
       </div>
     </>
   )

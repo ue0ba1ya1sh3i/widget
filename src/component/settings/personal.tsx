@@ -5,6 +5,9 @@ import { emit } from "@tauri-apps/api/event"
 // 自作関数
 import { getSettingsStore } from "../../lib/store"
 
+// 自作パーツ
+import { TextInput } from "../parts/text"
+
 export default function App() {
   const { t } = useTranslation()
   const [text, setText] = useState("")
@@ -37,13 +40,11 @@ export default function App() {
   return (
     <>
       <p className="text-2xl">{t("settings.Personal.text")}</p>
-      <div className="flex gap-2">
-        <input
-          placeholder="Enter here"
-          className="dark:bg-gray-800 border-2 bg-white dark:border-none w-80 py-1 px-2 rounded-md outline-none"
-          type="text"
+      <div className="flex gap-4">
+        <TextInput
           value={text}
           onChange={handleChangeText}
+          placeholder="Enter here"
         />
       </div>
     </>

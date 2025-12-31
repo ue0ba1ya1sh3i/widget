@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { listen } from "@tauri-apps/api/event"
 
 // 自作関数
-import { loadTheme, setTheme } from "../lib/theme"
+import { loadTheme, setSettingsTheme } from "../lib/theme"
 
 function useTheme() {
   const [isDark, setIsDark] = useState<boolean | null>(null)
@@ -22,13 +22,13 @@ function useTheme() {
 
   const toggleTheme = async () => {
     if (isDark === null) return
-    await setTheme(!isDark)
+    await setSettingsTheme(!isDark)
   }
 
   return {
     isDark,
     toggleTheme,
-    setTheme
+    setSettingsTheme
   }
 }
 

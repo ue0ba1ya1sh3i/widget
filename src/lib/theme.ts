@@ -11,7 +11,7 @@ async function loadTheme(): Promise<boolean> {
   return isDark
 }
 
-async function setTheme(isDark: boolean) {
+async function setSettingsTheme(isDark: boolean) {
   //設定ファイル
   const store = await getSettingsStore()
   await store.set("settingsTheme", isDark)
@@ -28,4 +28,14 @@ async function setTheme(isDark: boolean) {
   emit("theme:update", { isDark })
 }
 
-export { loadTheme, setTheme }
+async function setWidgetTheme(colorClass: string) {
+  //設定ファイル
+  const store = await getSettingsStore()
+  await store.set("widgetTheme", colorClass)
+  await store.save()
+
+  // 全ウィンドウに通知
+  emit("widgetTheme:update", { colorClass })
+}
+
+export { loadTheme, setSettingsTheme, setWidgetTheme }

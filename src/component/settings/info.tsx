@@ -28,7 +28,7 @@ export default function Info() {
 
   return (
     <>
-      <p className="text-2xl">{name} - v{version} (<button onClick={() => openUrl("https://github.com/ue0ba1ya1sh3i/widget")} className="border-b-2">GitHub</button>)</p>
+      <p className="text-2xl">{name} - v{version} (<button onClick={() => openUrl("https://github.com/ue0ba1ya1sh3i/widget")} className="border-b-2 border-gray-600 dark:border-gray-300">GitHub</button>)</p>
       <ul className="list-disc pl-5 text-xl">
         {infoList.map((item, idx) => (
           <li key={idx}>{item}</li>
