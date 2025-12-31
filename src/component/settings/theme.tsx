@@ -1,28 +1,29 @@
 import { useTranslation } from "react-i18next"
+import { useTheme } from "../../hooks/useTheme"
 
-// dark変数の型定義
-type Color = {
-  isDark: boolean
-  setIsDark: React.Dispatch<React.SetStateAction<boolean>>
-}
-
-function Color({ isDark, setIsDark }: Color) {
+export default function App() {
   const { t } = useTranslation()
+  const { isDark, toggleTheme } = useTheme()
+
+  // 取得できるまで待つ
+  if (isDark === null) return null
 
   return (
     <>
-      <p className="text-xl">
-        {t("settings.theme.current", { mode: isDark ? t("settings.theme.dark") : t("settings.theme.light") })}
-      </p>
+      <div className="flex items-center gap-2">
+        <p className="text-2xl">
+          {t("settings.Theme.dark")}
+        </p>
 
-      <button
-        className="border-2 dark:border-none px-4 py-2 w-fit rounded bg-white dark:bg-gray-800"
-        onClick={() => setIsDark(prev => !prev)}
-      >
-        {isDark ? t("settings.theme.button.toLight") : t("settings.theme.button.toDark")}
-      </button>
+        <label className="relative inline-flex items-center cursor-pointer">
+          <input type="checkbox" checked={isDark} onChange={toggleTheme} className="sr-only" />
+
+          <div className="w-14 h-8 bg-gray-200 dark:bg-green-600 rounded-full transition-all"></div>
+          <div className={`absolute left-1 top-1 size-6 bg-white rounded-full shadow-md transform transition-transform ${
+            isDark ? "translate-x-6" : "translate-x-0" }`}
+          ></div>
+        </label>
+      </div>
     </>
   )
 }
-
-export default Color

@@ -6,6 +6,7 @@ import { getSettingsStore } from "../lib/store"
 import en from "../translate/en.json"
 import ja from "../translate/ja.json"
 
+// 初期化するときは必ずレンダーされる前にawaitで実行してね
 async function initI18next() {
   const store = await getSettingsStore()
   const savedLang = (await store.get("language")) as string | undefined

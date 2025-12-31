@@ -14,7 +14,7 @@
   "app": {
     "windows": [
       {
-        "label": "widget",
+        "label": "Widget",
         "title": "widget",
         "url": "/",
 

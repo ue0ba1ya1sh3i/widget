@@ -1,3 +1,4 @@
+# 基本はこれでOK
 node_modules/
 dist/
 .env

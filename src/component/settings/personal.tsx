@@ -1,15 +1,17 @@
 import { useTranslation } from "react-i18next"
 import { useState, useRef, useEffect } from "react"
 import { emit } from "@tauri-apps/api/event"
+
+// 自作関数
 import { getSettingsStore } from "../../lib/store"
 
-function Personal() {
+export default function App() {
   const { t } = useTranslation()
   const [text, setText] = useState("")
+
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
-  // input変更時の処理
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChangeText = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value
     setText(value)
 
@@ -20,10 +22,10 @@ function Personal() {
       await store.set("text", value)
       await store.save()
       emit("text:update", { text: value })
-    }, 500)
+    }, 1000)
   }
 
-  // 起動時に保存されている設定を読み込む
+  // レンダー時に保存されている設定を読み込む
   useEffect(() => {
     ;(async () => {
       const store = await getSettingsStore()
@@ -34,18 +36,16 @@ function Personal() {
 
   return (
     <>
-      <p className="text-xl">{t("settings.personal.text")}</p>
+      <p className="text-2xl">{t("settings.Personal.text")}</p>
       <div className="flex gap-2">
         <input
           placeholder="Enter here"
           className="dark:bg-gray-800 border-2 bg-white dark:border-none w-80 py-1 px-2 rounded-md outline-none"
           type="text"
           value={text}
-          onChange={handleChange}
+          onChange={handleChangeText}
         />
       </div>
     </>
   )
 }
-
-export default Personal

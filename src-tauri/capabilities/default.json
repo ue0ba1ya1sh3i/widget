@@ -4,8 +4,9 @@
   "description": "Capability for the main window",
   
   "windows": [
-    "widget",
-    "settings"
+    "Widget",
+    "Settings",
+    "AI"
   ],
 
   "permissions": [

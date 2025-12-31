@@ -3,13 +3,17 @@
 @tailwind utilities;
 
 * {
+  /* Edgeとかのあのびよ～んってなるやつ...無効化！ */
   overscroll-behavior: none;
+
+  /* ユーザーセレクトの無効化 */
 	user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
 }
 
+/* スクロールバーの無効化 */
 ::-webkit-scrollbar {
     width: 0px;
     height: 0px;

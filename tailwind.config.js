@@ -1,4 +1,4 @@
-/** @type {import('tailwindcss').Config} すごいよね、これでTypeScriptの型が効くなんて */
+/** @type {import('tailwindcss').Config} これで型が効く */
 export default {
   content: [    
     "./index.html",

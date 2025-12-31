@@ -1,4 +1,3 @@
-// info.tsx
 import { useEffect, useState } from 'react'
 import { getVersion, getName } from '@tauri-apps/api/app'
 import { useTranslation } from 'react-i18next'
@@ -25,7 +24,7 @@ export default function Info() {
   if (!name || !version) return <p className='text-xl'>Loading...</p>
 
   // i18nで配列として取得
-  const infoList: string[] = t("settings.info.info", { returnObjects: true }) as string[]
+  const infoList: string[] = t("settings.Info.info", { returnObjects: true }) as string[]
 
   return (
     <>

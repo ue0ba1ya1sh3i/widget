@@ -3,31 +3,30 @@
     "noText": "テキストが設定されません"
   },
 
+  "ai": {
+    "title": "AIモード"
+  },
+
   "settings": {
     "title": "設定",
     "load": "現在準備中です...",
+    "enable": "有効化",
 
-    "main": {
+    "Main": {
       "title": "基本設定",
       "language": "言語 - 表示言語を選択します"
     },
 
-    "theme": {
+    "Theme": {
       "title": "テーマ",
-      "current": "現在の設定テーマ: {{mode}}",
-      "light": "ライト",
-      "dark": "ダーク",
-      "button": {
-        "toLight": "ライトモードにする",
-        "toDark": "ダークモードにする"
-      }
+      "dark": "ダークモード"
     },
 
-    "position": {
+    "Position": {
         "title": "位置設定"
     },
 
-    "info": {
+    "Info": {
       "title": "アプリについて",
       "info": [
         "大幅なUIの印新",
@@ -36,7 +35,7 @@
       ]
     },
     
-    "personal": {
+    "Personal": {
       "title": "個人設定",
       "text": "テキスト - ウィジェットにテキストを表示します"
     }

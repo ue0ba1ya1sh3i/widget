@@ -3,12 +3,12 @@ import { getCurrentWindow, LogicalPosition } from '@tauri-apps/api/window'
 async function setPosition() {
   const win = getCurrentWindow()
   
-  //widgetウィンドウ以外は処理しない
-  if (win.label !== "widget") return
+  // Widgetウィンドウ以外は処理しない
+  if (win.label !== "Widget") return
 
   const size = await win.innerSize()
 
-  // ブラウザ側で画面サイズ
+  // ブラウザ側で画面サイズをはかる
   const screenW = window.screen.availWidth
   const screenH = window.screen.availHeight
 
